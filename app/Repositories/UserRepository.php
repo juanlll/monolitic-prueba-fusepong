@@ -37,4 +37,9 @@ class UserRepository extends BaseRepository
     {
         return User::class;
     }
+
+    public function getMyCompanies($userId){
+        $user = $this->model->findOrFail($userId);
+        return $user->mycompanies();
+    }
 }

@@ -34,7 +34,15 @@ Route::get('/', function () {
 
 Route::get('home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-Route::resource('companies', App\Http\Controllers\CompanyController::class)->middleware('auth');
+//Route::resource('companies', App\Http\Controllers\CompanyController::class)->middleware('auth');
+
+Route::get('companies', App\Http\Controllers\Company\IndexCompanyController::class)->name('companies.index')->middleware('auth');
+Route::get('companies/{id}', App\Http\Controllers\Company\ShowCompanyController::class)->name('companies.show')->middleware('auth');
+Route::get('companies/{id}/edit', App\Http\Controllers\Company\EditCompanyController::class)->name('companies.edit')->middleware('auth');
+Route::get('companies/create', App\Http\Controllers\Company\CreateCompanyController::class)->name('companies.create')->middleware('auth');
+Route::put('companies', App\Http\Controllers\Company\UpdateCompanyController::class)->name('companies.update')->middleware('auth');
+Route::post('companies', App\Http\Controllers\Company\StoreCompanyController::class)->name('companies.store')->middleware('auth');
+Route::delete('companies', App\Http\Controllers\Company\DeleteCompanyController::class)->name('companies.delete')->middleware('auth');
 
 Route::resource('projects', App\Http\Controllers\ProjectController::class)->middleware('auth');
 
