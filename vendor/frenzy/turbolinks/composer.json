@@ -1,0 +1,40 @@
+{
+    "name": "frenzy/turbolinks",
+    "description": "Frenzy Turbolinks makes following links in your web application faster with Laravel",
+    "keywords": [
+        "laravel", "turbolinks",
+        "javascript", "larasset", "assets", "ajax", "pjax"
+    ],
+    "license":     "MIT",
+    "authors": [
+        {
+            "name": "Studio Frénétic",
+            "email": "info@studiofrenetic.com"
+        },
+        {
+            "name": "Tortue Torche",
+            "email": "tortuetorche@spam.me"
+        }
+    ],
+    "require": {
+        "barryvdh/laravel-stack-middleware": "~1.2.5",
+        "helthe/turbolinks": "^4.0.0"
+    },
+    "autoload": {
+        "psr-0": {
+            "Frenzy\\Turbolinks\\": "src/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Frenzy\\Turbolinks\\TurbolinksServiceProvider"
+            ]
+        }
+    },
+    "config": {
+        "preferred-install": "dist"
+    },
+    "prefer-stable": true,
+    "minimum-stability": "dev"
+}
