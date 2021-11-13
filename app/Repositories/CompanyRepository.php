@@ -37,4 +37,13 @@ class CompanyRepository extends BaseRepository
     {
         return Company::class;
     }
+
+
+    public function getCompaniesWithUser($userId){
+        $companies = $this->model->whereHas('users', function($query) use ($userId){ 
+            return $query->where('users.id', $userId);
+        })->get();
+        return $companies;
+    }
+
 }
